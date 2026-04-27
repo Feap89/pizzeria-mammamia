@@ -1,23 +1,25 @@
-import banner from "../assets/banner-pizzeria.jpg";
+// src/components/Home.jsx
+import React from "react";
+import { pizzas } from "../pizzas";
+import CardPizza from "../components/CardPizza";
 
-
-
-function Home() {
+const Home = () => {
   return (
-    <div className="banner">
-      <img src={banner} alt="Banner Pizzería Mamma Mía" className="banner-img" />
-      <h1>Bienvenido a Pizzería Mamma Mía</h1>
-      <p>Las mejores pizzas artesanales, hechas con amor y tradición.</p>
+    <div className="home-container">
+      <h1>🍕 Bienvenido a Pizzería Mamma Mía 🍕</h1>
+      <div className="pizzas-grid">
+        {pizzas.map((pizza) => (
+          <CardPizza
+            key={pizza.id}
+            name={pizza.name}
+            price={pizza.price}
+            ingredients={pizza.ingredients}
+            img={pizza.img}
+          />
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default Home;
-
-<div className="banner">
-  <h1>Bienvenido a Pizzería Mamma Mía</h1>
-  <p>Las mejores pizzas artesanales, hechas con amor y tradición.</p>
-</div>
-
-
-
